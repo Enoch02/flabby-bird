@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt0sy7drgatwp"]
+
+[ext_resource type="PackedScene" uid="uid://c8lpbuvg8son8" path="res://nodes/world.tscn" id="1_ui4dr"]
+[ext_resource type="PackedScene" uid="uid://ciw7q6vxqrx25" path="res://nodes/Player.tscn" id="2_hk4kk"]
+
+[node name="Main" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_ui4dr")]
+
+[node name="Player" parent="." instance=ExtResource("2_hk4kk")]
+position = Vector2(50, 360)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(190, 0)
+limit_left = 0
+limit_top = 0
+limit_bottom = 720

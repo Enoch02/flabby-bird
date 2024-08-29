@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://ciw7q6vxqrx25"]
+
+[ext_resource type="Texture2D" uid="uid://chne5x1ak0m3w" path="res://assets/sprites/bluebird-upflap.png" id="1_83bbh"]
+[ext_resource type="Script" path="res://nodes/player.gd" id="1_jytuj"]
+[ext_resource type="Texture2D" uid="uid://bhhaq2pkvwo8b" path="res://assets/sprites/bluebird-midflap.png" id="1_wghcm"]
+[ext_resource type="Texture2D" uid="uid://cshygxrqvl6c4" path="res://assets/sprites/bluebird-downflap.png" id="3_ruriw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkdng"]
+size = Vector2(22, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6v8wi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_83bbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_wghcm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ruriw")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_jytuj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_xkdng")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6v8wi")
+animation = &"flap"
+frame_progress = 0.399335
